@@ -1,0 +1,53 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #2d7ad3;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+/* Style the weather container */
+.weather-container {
+    max-width: 400px;
+    margin: 20px auto; /* Added some top margin for better centering */
+    background-color: #193d66;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px 2px #010911; /* Increased the shadow size */
+}
+
+/* Style the search container */
+.search-container {
+    margin-bottom: 20px;
+}
+
+/* Style the text input */
+input[type="text"] {
+    width: 70%;
+    padding: 10px;
+    border: 2px solid #007bff; /* Added a blue border */
+    border-radius: 5px;
+    color: #007bff; /* Changed text color to blue */
+}
+
+/* Style the search button */
+button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s; /* Added a smooth hover effect */
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Style the weather information text */
+.weather-info {
+    text-align: left;
+    color: #fff; /* Changed text color to white */
+    margin-top: 20px; /* Added some top margin for separation */
+}

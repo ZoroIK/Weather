@@ -1,0 +1,19 @@
+{
+	"geolocation": {
+		"data": {
+			"city": "The Bronx",
+			"country": {
+				"code": "US",
+				"name": "United States"
+			},
+			"subdivision": {
+				"code": "NY",
+				"name": "New York"
+			},
+			"timezone": "America/New_York",
+			"latitude": 40.873,
+			"longitude": -73.8233
+		},
+		"timestamp": 1696954805814
+	}
+}

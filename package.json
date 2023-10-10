@@ -1,0 +1,12 @@
+{
+  "devDependencies": {
+    "netlify-cli": "^16.5.1"
+  },
+  "scripts": {
+    "dev": "http-server src -p 5500",
+    "netlify": "./node_modules/.bin/netlify"
+  },
+  "dependencies": {
+    "axios": "^1.5.1"
+  }
+}
