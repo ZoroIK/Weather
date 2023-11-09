@@ -1,45 +1,121 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
 body {
     font-family: Arial, Helvetica, sans-serif;
-    background-color: #2d7ad3;
+    background-color: #044488;
+    height: 100%;
     text-align: center;
     margin: 0;
     padding: 0;
 }
+html{
+    height: 100%;
+    font-size: 10px;
+}
+
+#temperatureF,#temperatureC{
+    grid-column: span 2;
+    font-size: 8rem;
+    
+    
+    
+}
+
 
 /* Style the weather container */
 .weather-container {
-    max-width: 400px;
-    margin: 20px auto; /* Added some top margin for better centering */
-    background-color: #193d66;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 15px 2px #010911; /* Increased the shadow size */
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    max-width: 70rem;
+    margin: 2rem auto;
+    background: linear-gradient(to bottom right, white,#bbdeff);
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0rem 0rem 1.5rem .2rem #010911;
+    align-items: center;
+    height: 35rem;
+}
+
+.search{
+    grid-column: span 2;
+    align-self: flex-start;
+}
+#search-button,#location-button{
+    align-self: flex-start;
+    justify-self: center;
 }
 
 /* Style the search container */
 .search-container {
-    margin-bottom: 20px;
+    margin-bottom: 2rem;
 }
 
 /* Style the text input */
 input[type="text"] {
-    width: 70%;
-    padding: 10px;
-    border: 2px solid #007bff; /* Added a blue border */
-    border-radius: 5px;
-    color: #007bff; /* Changed text color to blue */
+    width: 80%;
+    padding: 1rem;
+    border: .1rem solid #007bff;
+    border-radius: 10rem;
+    color: #007bff;
+    height: 60%;
+    
 }
 
 /* Style the search button */
 button {
-    padding: 10px 20px;
+    padding: .9rem 0rem ;
+    width: 80%;
     background-color: #007bff;
     color: #fff;
     border: none;
-    border-radius: 5px;
+    border-radius: 10rem;
     cursor: pointer;
-    transition: background-color 0.3s; /* Added a smooth hover effect */
+    transition: background-color 0.3s;
 }
+
+
 
 button:hover {
     background-color: #0056b3;
@@ -48,6 +124,41 @@ button:hover {
 /* Style the weather information text */
 .weather-info {
     text-align: left;
-    color: #fff; /* Changed text color to white */
-    margin-top: 20px; /* Added some top margin for separation */
+    color: #fff;
+    margin-top: 2rem;
+}
+p{
+    font-size: 2rem;
+}
+img{
+    width :10rem;
+
+}
+
+/* Autocomplete result container */
+#autocomplete-result {
+    left: 14.5rem;
+    font-size: 1.2rem;
+    border: .1rem solid #ccc;
+    border-radius: 1rem;
+    max-height: 15rem;
+    max-width: 30rem;
+    overflow-y: auto;
+    position: absolute;
+    background-color: #fff; /* Added a white background */
+    z-index: 1; /* Ensures it's above other elements */
+}
+
+#autocomplete-result > div {
+    padding: .8rem;
+    cursor: pointer;
+    border-bottom: .1rem solid #ccc; /* Separation between items */
+}
+
+#autocomplete-result > div:last-child {
+    border-bottom: none; /* Remove the border from the last item */
+}
+
+#autocomplete-result > div:hover {
+    background-color: #f0f0f0;
 }

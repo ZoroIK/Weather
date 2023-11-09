@@ -3,9 +3,50 @@ document.addEventListener('DOMContentLoaded',() => {
     const searchButton = document.getElementById('search-button');
     const locationButton = document.getElementById('location-button');
 
+    
+
+    const cityInput = document.getElementById('city-input');
+    const resultContainer = document.getElementById('autocomplete-result');
+    let dataArray;
+    //fetch the city names
+    fetch(`/.netlify/functions/fetch-cityName`)
+    .then(res => res.json())
+    .then(data => {
+      
+        dataArray = Object.values(data);
+      dataArray.sort((a, b) => a.city.localeCompare(b.city));
+      console.log(dataArray);
+    })
+    .catch(error => {
+      console.error(error);
+    });
+    
+    
+
+    cityInput.addEventListener('input', function(){
+
+        const inputText = cityInput.value.toLowerCase();
+
+        const matchCity = dataArray.filter(item =>
+            
+            item.city.toLowerCase().includes(inputText)
+        );
+
+        resultContainer.innerHTML ="";
+
+        matchCity.forEach(item =>{
+            const resultItem = document.createElement("div");
+            resultItem.textContent = item.city;
+            resultItem.addEventListener("click", function(){
+                cityInput.value = item.city;
+                resultContainer.innerHTML="";
+            });
+            resultContainer.appendChild(resultItem);
+        });
+    });
     //event listener if search button is clicked
     searchButton.addEventListener('click',() =>{
-        const cityInput = document.getElementById('city-input');
+        
         const city = cityInput.value;
         displayResult(city);// passess the input value/ city to display result
     });
@@ -15,7 +56,8 @@ document.addEventListener('DOMContentLoaded',() => {
         //declares varaibles for each field
         const nameCity= document.getElementById('city-name');
         const weatherDescription = document.getElementById('weather-description');
-        const temperature = document.getElementById('temperature');
+        const temperatureF = document.getElementById('temperatureF');
+        const temperatureC = document.getElementById('temperatureC');
         const humidity = document.getElementById('humidity');
         const windSpeed= document.getElementById('wind-speed');
         const imageElement = document.createElement("img");
@@ -24,9 +66,10 @@ document.addEventListener('DOMContentLoaded',() => {
         //fetches the information from fetch-weather netlify function
         fetch(`/.netlify/functions/fetch-weather?city=${city}`).then(res => res.json()).then(data =>{
             //adds the data to each varaibles
-            nameCity.textContent = `Weather in : ${data.location.name} `;
-            weatherDescription.textContent = `Weather: ${data.current.condition.text}`;
-            temperature.textContent = `Temperature: ${data.current.temp_c}°C / ${data.current.temp_f} F`;
+            //nameCity.textContent = `Weather in : ${data.location.name} `;
+            weatherDescription.textContent = `${data.current.condition.text}`;
+            temperatureF.textContent = `${data.current.temp_f} F`;
+            temperatureC.textContent =`${data.current.temp_c}°C `;
             humidity.textContent = `Humidity: ${data.current.humidity}%`;
             windSpeed.textContent = `Wind Speed: ${data.current.wind_kph} m/s`
             imageElement.src = `https:${data.current.condition.icon}`;
@@ -84,4 +127,6 @@ document.addEventListener('DOMContentLoaded',() => {
        });
 
     }
+
+
 });

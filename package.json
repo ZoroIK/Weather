@@ -7,6 +7,7 @@
     "netlify": "./node_modules/.bin/netlify"
   },
   "dependencies": {
-    "axios": "^1.5.1"
+    "axios": "^1.5.1",
+    "csv-parser": "^3.0.0"
   }
 }

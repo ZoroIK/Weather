@@ -9,23 +9,27 @@
 </head>
 <body>
     <div class = "weather-container">
-        <h1> Weather</h1>
-        <div class = "serch-contatiner">
-            <input type = "text" id = "city-input" placeholder = "Enter City">
-            <button id = "search-button">Search</button><br><br>
-            <button id = "location-button">Use my current location</button>
-        </div>
         
-
-        <div class = "weather-info">
-            <h2 id = "city-name"></h2>
-            <p id = "weather-description"></p>
-            <p id = "temperature"></p>
-            <p id = "humidity"></p>
-            <p id = "wind-speed"></p>
+            <div class="search" >
+                <input type = "text" id = "city-input" placeholder = "Enter City">
+                <div id = "autocomplete-result"></div>
+                <div id = "data-container"></div>
+            </div>
+            
+            <button id = "search-button">Search</button>
+            <button id = "location-button">My Weather</button>
+        
             <p id = "image-field"></p>
+            <p id = "temperatureF"></p>
+            <p id = "humidity"></p>
+            <p id = "weather-description"></p>
+            <p id = "temperatureC"></p>
+            <p id = "wind-speed"></p>
+            
 
-        </div>
+       
+
+    
 
     </div>
     <script src="weather.js"></script>
