@@ -46,10 +46,36 @@ document.addEventListener('DOMContentLoaded',() => {
     });
     //event listener if search button is clicked
     searchButton.addEventListener('click',() =>{
+        // Create img element
+        const humidityImg = document.createElement("img");
+
+        // Set image source
+        humidityImg.src = "humidity.png";
+
+        // Get the element where you want to append the image
+        const humidityImg_field = document.getElementById("humidity-icon");
+
+        // Append the image to the DOM
+        humidityImg_field.appendChild(humidityImg);
+
+        // Create img element
+        const windImg = document.createElement("img");
+
+        // Set image source
+        windImg.src = "wind.png";
+
+        // Get the element where you want to append the image
+        const windImg_field = document.getElementById("wind-icon");
+
+        // Append the image to the DOM
+        windImg_field.appendChild(windImg);
+
         
         const city = cityInput.value;
         displayResult(city);// passess the input value/ city to display result
     });
+
+
 
     //function to display the weather status
     function displayResult(city){
@@ -62,7 +88,10 @@ document.addEventListener('DOMContentLoaded',() => {
         const windSpeed= document.getElementById('wind-speed');
         const imageElement = document.createElement("img");
         const image = document.getElementById("image-field");
+        
 
+        
+        
         //fetches the information from fetch-weather netlify function
         fetch(`/.netlify/functions/fetch-weather?city=${city}`).then(res => res.json()).then(data =>{
             //adds the data to each varaibles
@@ -70,6 +99,7 @@ document.addEventListener('DOMContentLoaded',() => {
             weatherDescription.textContent = `${data.current.condition.text}`;
             temperatureF.textContent = `${data.current.temp_f} F`;
             temperatureC.textContent =`${data.current.temp_c}°C `;
+            
             humidity.textContent = `Humidity: ${data.current.humidity}%`;
             windSpeed.textContent = `Wind Speed: ${data.current.wind_kph} m/s`
             imageElement.src = `https:${data.current.condition.icon}`;
