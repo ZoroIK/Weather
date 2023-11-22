@@ -46,6 +46,17 @@ document.addEventListener('DOMContentLoaded',() => {
     });
     //event listener if search button is clicked
     searchButton.addEventListener('click',() =>{
+        
+
+        
+        const city = cityInput.value;
+        displayResult(city);// passess the input value/ city to display result
+    });
+
+
+
+    //function to display the weather status
+    function displayResult(city){
         // Create img element
         const humidityImg = document.createElement("img");
 
@@ -69,16 +80,6 @@ document.addEventListener('DOMContentLoaded',() => {
 
         // Append the image to the DOM
         windImg_field.appendChild(windImg);
-
-        
-        const city = cityInput.value;
-        displayResult(city);// passess the input value/ city to display result
-    });
-
-
-
-    //function to display the weather status
-    function displayResult(city){
         //declares varaibles for each field
         const nameCity= document.getElementById('city-name');
         const weatherDescription = document.getElementById('weather-description');
