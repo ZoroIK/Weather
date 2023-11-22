@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded',() => {
         // Get the element where you want to append the image
         const humidityImg_field = document.getElementById("humidity-icon");
         
-        
+        humidityImg_field.innerHTML="";
         
         // Append the image to the DOM
         humidityImg_field.appendChild(humidityImg);
