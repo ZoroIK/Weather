@@ -65,7 +65,9 @@ document.addEventListener('DOMContentLoaded',() => {
 
         // Get the element where you want to append the image
         const humidityImg_field = document.getElementById("humidity-icon");
-
+        
+        
+        
         // Append the image to the DOM
         humidityImg_field.appendChild(humidityImg);
 
@@ -78,8 +80,11 @@ document.addEventListener('DOMContentLoaded',() => {
         // Get the element where you want to append the image
         const windImg_field = document.getElementById("wind-icon");
 
+        windImg_field.innerHTML="";
+
         // Append the image to the DOM
         windImg_field.appendChild(windImg);
+
         //declares varaibles for each field
         const nameCity= document.getElementById('city-name');
         const weatherDescription = document.getElementById('weather-description');
